@@ -1,0 +1,21 @@
+.header{
+    display: flex;
+    background-color: rgba(112, 113, 125, 0.886);
+    /*border-radius: 13px;*/
+    width: 100%;
+}
+.nav-bar {
+    align-self:center;
+    margin-left:50%;
+    
+}
+.listitem{
+    font-size: large;
+    padding: 10px;
+    text-decoration: solid;
+    color: black;
+    font-weight: 800;
+}
+.comp-name{
+    
+}

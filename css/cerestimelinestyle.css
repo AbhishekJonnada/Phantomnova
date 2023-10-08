@@ -1,0 +1,576 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: "Londrina Solid", Arial, Helvetica, serif;
+	overflow-x: hidden;
+	
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+body:after {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -2;
+
+	
+}
+
+.content {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.itenaryh1 {
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	background: linear-gradient(180deg, #000 65%, #000b, #0008, #0004, #0000);
+	margin: 0;
+	padding: 3vmin 0 8vmin 0;
+	position: fixed;
+	z-index: 1;
+	font-size: 5vmin;
+	letter-spacing: 0.25vmin;
+}
+
+.timeline {
+	position: relative;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 30vh 2vmin 2vmin 2vmin;
+}
+
+.timeline::before {
+	content: "";
+	position: fixed;
+	width: 100vw;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	background: linear-gradient(180deg, #fff0, #000 22vh 100vh);
+	height: 33vh;
+}
+
+.timeline::after {
+	content: "";
+	position: absolute;
+	width: 0.5vmin;
+
+	background: #fff;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	margin-left: -0.25vmin;
+	z-index: -1;
+}
+
+.timeline li {
+	text-align: right;
+	background: red;
+	list-style-type: none;
+	padding: 0 4vmin 0 0;
+	position: relative;
+	background-color: inherit;
+	width: 50%;
+	perspective: 30vmin;
+	perspective-origin: bottom;
+	font-size: 1rem;
+}
+
+.timeline li:nth-child(even) {
+	text-align: left;
+	left: 50%;
+	padding: 0 0 0 4vmin;
+}
+
+.timeline li:before {
+	content: " ";
+	height: 0;
+	position: absolute;
+	top: 1vmin;
+	width: 0;
+	z-index: 1;
+	right: 3vmin;
+	border: medium solid #fff;
+	border-width: 1vmin 0 1vmin 1vmin;
+	border-color: #fff0 #fff0 #fff0 #fff;
+}
+
+.timeline li:nth-child(even):before {
+	border-color: #fff0 #fff #fff0 #fff0;
+	border-width: 1vmin 1vmin 1vmin 0;
+	right: inherit;
+	left: 3vmin;
+}
+
+.timeline li:after {
+	content: "";
+	position: absolute;
+	width: 4.5vmin;
+	height: 4.5vmin;
+	right: -2.25vmin;
+	background-color: white;
+	border: 0.5vmin solid #000;
+	top: -0.25vmin;
+	border-radius: 50%;
+	z-index: 1;
+	background: url(https://josetxu.com/demos/img/earth.png);
+	background-size: contain;
+	box-sizing: border-box;
+}
+
+.timeline li:nth-child(even):after {
+	left: -2.25vmin;
+}
+
+.timeline li > * {
+	width: 100%;
+	display: inline-block;
+	padding: 0.5vmin;
+}
+
+.timeline li h2 {
+	position: absolute;
+	top: -40vh;
+	margin: 0;
+	left: 0;
+}
+
+.timeline li time {
+	background: #fff;
+	float: right;
+	width: auto;
+	font-size: 3vmin;
+	border-radius: 0.25vmin;
+}
+
+.timeline li:nth-child(even) time {
+	float: left;
+}
+
+.timeline li time span {
+	font-size: 1.5vmin;
+	line-height: 0.25vmin;
+	top: -1vmin;
+	position: relative;
+	margin-left: 0.5vmin;
+	color: #666;
+}
+
+.timeline li time span em {
+	font-size: 1.1vmin;
+	text-transform: uppercase;
+	font-style: normal;
+	color: #999;
+	float: right;
+}
+
+.timeline li time strong {
+	font-weight: normal;
+	color: red;
+}
+
+.timeline li > strong {
+	color: #cddc39;
+	font-weight: 300;
+	padding: 0.25vmin 0;
+	font-size: 1rem;
+}
+
+.timeline li > strong span {
+	float: right;
+	background: #000000;
+	padding: 0.5vmin 1vmin;
+	border-radius: 0.25vmin;
+	width: 26vmin;
+	font-size: 1.85vmin;
+	letter-spacing: 0.025vmin;
+}
+
+.timeline li:nth-child(even) > strong span {
+	float: left;
+}
+
+.timeline li > span a {
+	position: absolute;
+	top: 8.9vmin;
+	right: 4.5vmin;
+	width: 25vmin;
+	height: 10vmin;
+	background: #0e080880;
+	text-decoration: none;
+	text-align: center;
+	font-weight: 100;
+	font-size: 5vmin;
+	line-height: 10vmin;
+	color: #000000ad;
+	opacity: 0;
+}
+
+.timeline li:nth-child(even) > span a {
+	right: inherit;
+}
+
+.timeline li > span a:before {
+	content: "+";
+}
+
+.timeline li > span a:hover {
+	opacity: 1;
+}
+
+.timeline li > span {
+	overflow: hidden;
+	transition: all 0.5s ease 0s;
+	background: #091013;
+	right: 2vmin;
+	margin-top: -0.5vmin;
+	width: auto;
+	color: #fff;
+	border-radius: 0.25vmin;
+	display: inline-grid;
+	font-weight: 100;
+	letter-spacing: 0.1vmin;
+}
+
+.timeline li:nth-child(even) > span {
+	right: initial;
+	left: 2vmin;
+	transform-origin: left top;
+}
+
+.timeline li:last-of-type {
+	margin-bottom: 45vmin;
+}
+
+.timeline li > span:before {
+	content: "";
+	float: right;
+	width: 30vmin;
+	height: 10vmin;
+	background: #fff;
+	background-size: cover;
+	background-position: center;
+	text-align: justify;
+}
+
+.timeline li:nth-child(1) > span:before {
+	background-image: url("img/ceres/1.png");
+	background-position: center 0%;
+	background-size: 150px 80px ;
+	
+}
+
+.timeline li:nth-child(2) > span:before {
+	background-image: url(img/ceres/2.png);
+	background-position: center 10%;
+}
+
+.timeline li:nth-child(3) > span:before {
+	background-image: url("img/ceres/3.png");
+	background-position: center 20%;
+}
+
+.timeline li:nth-child(4) > span:before {
+	background-image: url(img\ceres\park.jpeg);
+	background-position: center 30%;
+}
+
+.timeline li:nth-child(5) > span:before {
+	background-image: url(img\ceres\4.png);
+	background-position: center 40%;
+}
+
+.timeline li:nth-child(6) > span:before {
+	background-image: url(img\ceres\6.jpeg);
+	background-position: center 50%;
+}
+
+.timeline li:nth-child(7) > span:before {
+	background-image: url(img\ceres\mountain.jpeg);
+	background-position: center 60%;
+	background-size: 200px 60px;
+}
+
+
+.timeline li > span:after {
+	content: "";
+	width: 30vmin;
+	text-shadow: 0 0 1px #000, 0 0 1px #000;
+	font-size: 1rem;
+	text-align: left;
+}
+
+.timeline li:nth-child(1) > span:after {
+	content:" If your spacecraft is equipped for spacewalks, you could take a walk on the surface of Ceres.";
+}
+
+.timeline li:nth-child(2) > span:after {
+	content: "Ceres' icy surface would be perfect for a game of ice hockey. You could bring your own hockey sticks or rent them on Ceres.";
+}
+
+.timeline li:nth-child(3) > span:after {
+	content: "If Ceres has any snow-capped mountains, you could go snowboarding.";
+}
+
+.timeline li:nth-child(4) > span:after {
+	content: " Ceres has a number of interesting geological features, such as craters, mountains, and valleys. You could explore these features on foot or by using a rover.  ";
+}
+
+.timeline li:nth-child(5) > span:after {
+	content: "Ceres has a smooth, icy surface, which would be perfect for skating. You could bring your own skates or rent them on Ceres";
+}
+
+.timeline li:nth-child(6) > span:after {
+	content: "Travel through the inner solar system, passing by Mars and the asteroid belt.";
+}
+
+.timeline li:nth-child(7) > span:after {
+	content: " Ceres has a number of steep cliffs and craters. You could try rappelling down a cliff or exploring a crater cave.";
+}
+
+.selector {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 10vmin;
+	background: linear-gradient(180deg, #fff0 0 32%, #fff8 0 34%, #fff0 0 100%);
+	z-index: 3;
+	padding-top: 6vmin;
+}
+
+.selector a {
+	opacity: 1;
+	position: absolute;
+	margin: 1px;
+	left: 0;
+	text-decoration: none;
+	background: white;
+	padding: 0.15vmin 0.25vmin 0.1vmin;
+	min-width: 2vw;
+	display: inline-block;
+	color: red;
+	border-left: 1px solid #000;
+	font-size: 1.65vmin;
+}
+
+.selector a:before {
+	content: "";
+	width: 2.5vmin;
+	height: 2.5vmin;
+	position: absolute;
+	top: -4vmin;
+	background: url(https://josetxu.com/demos/img/earth.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	box-shadow: 0 0 1vmin 0 #000;
+	border-radius: 100%;
+}
+
+.selector a:after {
+	content: "";
+	margin-left: 0.25vmin;
+	font-size: 1.5vmin;
+	position: absolute;
+	border: 0.75vmin solid transparent;
+	border-bottom-color: #fff;
+	top: -1.5vmin;
+	left: 0.5vmin;
+}
+
+.selector a span {
+	font-size: 1.25vmin;
+	color: #333;
+	margin-left: 0.25vmin;
+}
+
+a[href="#birth"]:before {
+	box-shadow: 0 0 0.15vmin 0.35vmin #2a1100;
+}
+
+a[href="#birth"] {
+	left: 10vw;
+}
+a[href="#know"] {
+	left: 20vw;
+}
+a[href="#photosynthesis"] {
+	left: 30vw;
+}
+a[href="#multicellular"] {
+	left: 40vw;
+}
+
+a[href="#plants"] {
+	left: 50vw;
+}
+a[href="#animals"] {
+	left: 60vw;
+}
+a[href="#ediacaran"] {
+	left: 70vw;
+}
+a[href="#cambrian"] {
+	left: 80vw;
+}
+
+
+a strong {
+	background: #1c1c1c;
+	color: #cddc39;
+	position: absolute;
+	top: 9vmin;
+	font-weight: 300;
+	padding: 0.5vmin 0.75vmin;
+	width: max-content;
+	border-radius: 0.25vmin;
+	left: 0;
+	transition: top 0.1s ease 0s;
+	z-index: -1;
+	font-size: 1rem;
+}
+
+a:hover strong {
+	top: -9vmin;
+	transition: top 0.5s ease 0s;
+}
+
+a strong:before {
+	content: "";
+	border: 0.85vmin solid #fff0;
+	border-top-color: #1c1c1c;
+	position: absolute;
+	bottom: -1.7vmin;
+}
+.timeline li:nth-child(1) {
+	margin-top: 0vh;
+}
+.timeline li:nth-child(2) {
+	margin-top: 10vh;
+}
+.timeline li:nth-child(3) {
+	margin-top: 10vh;
+}
+.timeline li:nth-child(4) {
+	margin-top: 10vh;
+}
+.timeline li:nth-child(5) {
+	margin-top: 10vh;
+}
+.timeline li:nth-child(6) {
+	margin-top: 10vh;
+}
+.timeline li:nth-child(7) {
+	margin-top: 10vh;
+}
+
+
+/*** PORTRAIT ***/
+
+@media only screen and (orientation: portrait) {
+	body:before {
+		left: -95vh;
+	}
+
+	.timeline li time {
+		font-size: 5vmin;
+	}
+
+	.timeline li > strong span,
+	.timeline li > span:after {
+		font-size: 2.5vmin;
+	}
+
+	.selector {
+		width: 12vw;
+		background: linear-gradient(90deg, #fff0 0 15%, #fff8 0 17%, #fff0 0 100%);
+		top: 0;
+		right: 0;
+		height: 100vh;
+	}
+	.selector a {
+		display: block;
+		left: 4vmin;
+		font-size: 2.25vmin;
+	}
+
+	.selector a:before {
+		top: 0vmin;
+		left: -3.5vmin;
+	}
+
+	.selector a:after {
+		border-bottom-color: #fff0;
+		border-right-color: #fff;
+		top: 0.5vmin;
+		left: -1.65vmin;
+	}
+
+	.selector a strong,
+	.selector a:hover strong {
+		display: none;
+	}
+
+	a[href="#birth"] {
+		top: 2vh;
+	}
+	a[href="#know"] {
+		top: 4vh;
+	}
+	a[href="#photosynthesis"] {
+		top: 6vh;
+	}
+	a[href="#multicellular"] {
+		top: 8vh;
+	}
+	a[href="#plants"] {
+		top: 10vh;
+	}
+	a[href="#animals"] {
+		top: 12vh;
+	}
+	a[href="#ediacaran"] {
+		top: 14vh;
+	}
+	
+}
+.btn{
+    font-size: large;
+    padding: 10px;
+    text-decoration: solid;
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+    border: solid white;
+    border-radius: 15px;
+	width: fit-content;
+    
+}
+.btn:hover{
+    background-color: white;
+    color: black;
+}

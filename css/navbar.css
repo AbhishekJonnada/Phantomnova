@@ -1,0 +1,38 @@
+.header{
+    overflow: hidden;
+    display: flex;
+    overflow:hidden;
+    /*border-radius: 13px;*/
+    width: 100%;
+    
+    
+}
+.nav-bar {
+    align-self:center;
+    margin-left:45%;
+    
+}
+.listitem{
+    font-size: large;
+    padding: 8px;
+    text-decoration: solid;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+.comp-name{
+    color: rgb(255, 255, 255);
+    padding-left: 20px;
+    display: flex;
+    align-items:center;
+    
+}
+.nav-bar :hover{
+    background-color:  rgba(63, 63, 63, 0.815);
+    border-radius: 25px;
+    
+    
+}
+.logoh1{
+	border: none;
+	text-decoration: none;
+}

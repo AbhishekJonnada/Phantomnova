@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/navbar.css">
+    <title>Vehicle Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image:url("img/background.jpg");
+        }
+        .heading {
+            text-align: center;
+            background-image: url("img/background.jpg");
+            color: #fff;
+            padding: 20px 0;
+            
+        }
+        
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .image-slider {
+            width: 45%;
+            overflow: hidden;
+            position: relative;
+        }
+        .image-slider img {
+            width: 100%;
+            display: none;
+        }
+        .image-slider img:first-child {
+            display: block;
+        }
+        .slider-buttons {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .slider-button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .slider-button.active {
+            background-color: #555;
+        }
+        .image-info {
+            width: 45%;
+            padding: 20px;
+            color: #fff;
+        }
+        .image-info h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <div class="comp-name">
+            <img src="img/Phantoms__2_-removebg-preview.png" alt="logo" height="50px" width="50px">
+            <a href="index.html" class="logoh1"><h1 class="logoh1">Phantomnova</h1></a>
+        </div>
+        <div class="nav-bar">
+            <a  class="listitem" href="aboutus.html"> About Us</a>
+            <a  class="listitem" href="vehicles.html"> Vehicle</a>
+            <a  class="listitem" href="itenary.html">Itinerary</a>
+            <a  class="listitem" href="contactus.html"> Contact Us</a>
+            <a  class="listitem" href="login.html"> Login/Signup</a>
+        </div>
+    </section>
+
+    <div class="heading">
+        <h1>Vehicle</h1>
+    </div>
+    <hr style="width: 100%;text-align:left;margin-left:0">
+    <div class="container">
+        <div class="image-slider">
+            <img src="img/s1.jpg" alt="Image 1">
+            <img src="img/s2.jpg" alt="Image 2">
+            <img src="img/s3.jpg" alt="Image 3">
+            <div class="slider-buttons">
+                <button class="slider-button active" onclick="showImage(0)">1</button>
+                <button class="slider-button" onclick="showImage(1)">2</button>
+                <button class="slider-button" onclick="showImage(2)">3</button>
+            </div>
+        </div>
+        <div class="image-info">
+            <h2>Image 1</h2>
+            <p>Information about Image 1 goes here. This text will move with the image.</p>
+        </div>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.image-slider img');
+        const info = document.querySelector('.image-info');
+
+        function showImage(index) {
+            images[currentImageIndex].style.display = 'none';
+            images[index].style.display = 'block';
+            document.querySelector('.slider-button.active').classList.remove('active');
+            document.querySelectorAll('.slider-button')[index].classList.add('active');
+            currentImageIndex = index;
+            updateInfo(index);
+        }
+
+        function updateInfo(index) {
+            const imageInfo = [
+                { title: 'AstroK-I', text: 'Astrok-I is a spaceship with high technology. Astrok-I provides a wonderfull service for passengers.' },
+                { title: 'Astrok-II', text: 'Astrok-II is a spaceship with high technology. Astrok-II provides a wonderfull service for passengers.' },
+                { title: 'Astrok-III', text: 'Astrok-III is a spaceship with high technology. Astrok-III provides a wonderfull service for passengers.' }
+            ];
+            info.querySelector('h2').textContent = imageInfo[index].title;
+            info.querySelector('p').textContent = imageInfo[index].text;
+        }
+
+        showImage(0); // Show the first image initially
+    </script>
+</body>
+</html>
