@@ -90,7 +90,7 @@ h2{
     
 }
 .planets-bl2{
-    
+    display: flex;
     padding-top: 39px;
     align-content: center;
     align-items: center;
