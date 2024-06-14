@@ -81,7 +81,7 @@ h2{
 .mainplanets{
 	display: block;
 }
-.planets-bl1{
+.planets-bl1 planets-b12{
     display: flex;
     padding-top: 39px;
     align-content: center;
@@ -89,14 +89,7 @@ h2{
     
     
 }
-.planets-bl2{
-    display: flex;
-    padding-top: 39px;
-    align-content: center;
-    align-items: center;
-    
 
-}
 
 .btn{
     font-size: large;
